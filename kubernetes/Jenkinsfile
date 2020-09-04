@@ -80,6 +80,7 @@ containerTemplate(name: 'kubectl', image: 'roffe/kubectl', command: 'cat', ttyEn
 				sh "kubectl apply -n ${namespace} -f ${deployment}"
 				sh "kubectl apply -n ${namespace} -f ${service}"
 				sh "kubectl get svc -n ${namespace}"
+				sh "kubectl get node -o wide"
 			}
 		}
 
