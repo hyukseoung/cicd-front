@@ -2,7 +2,7 @@ def label = "worker-${UUID.randomUUID().toString()}"
 
 // Slack 알림
 def notifySlack(STATUS, COLOR) {
-	slackSend channel: '#cloud-academy-lab13 ', message: STATUS+" : " +
+	slackSend channel: '#cloud-academy-lab16 ', message: STATUS+" : " +
 	"${env.JOB_NAME}[${env.BUILD_NUMBER}] (${env.BUILD_URL})", color: COLOR,
 	tokenCredentialId: 'slack-lab13 ', teamDomain: 'ibm-teck'
 }
@@ -28,7 +28,7 @@ containerTemplate(name: 'kubectl', image: 'roffe/kubectl', command: 'cat', ttyEn
 
 		// #1 Github 소스 가져오기
 		stage('Get Source') {
-			git credentialsId: 'github-lab13', url: 'https://github.com/hyukseoung/cicd-front.git', branch: 'master'
+			git credentialsId: 'github-lab16', url: 'https://github.com/hyukseoung/cicd-front.git', branch: 'master'
 		}
 
 		// #2 Properties 파일 읽기	
